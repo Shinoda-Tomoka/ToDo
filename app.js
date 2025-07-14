@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/todoapp', { useNewUrlParser: true, u
 
 const todoSchema = new mongoose.Schema({
     title: String, 
-    limit_day: Date, 
+    limit_day: String, 
     limit_time: String, 
     importance: String
 });
@@ -21,8 +21,12 @@ app.get('/', async (req, res) => {
     res.render('index', { todos });
 });
 
+app.get('/new', (req, res) => {
+    res.render('new');
+});
+
 //新規追加
-app.post('/new' ,async (req, res) => {
+app.post('/' ,async (req, res) => {
     const { title, limit_day, limit_time, importance } = req.body;
     await Todo.create({ title, limit_day, limit_time, importance });
     res.redirect('/');

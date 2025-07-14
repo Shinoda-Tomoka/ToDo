@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>ToDoアプリ</h1>
+    <h2>新規登録</h2>
+    <form action="/" method="POST">
+        <div>
+            <label for="new_title">やること：</label>
+            <!-- idはlabelと連動。nameはform送信時にURLにつくやつ？ -->
+            <input type="text" id="new_title" name="title" required>
+        </div>
+        <div>
+            <label for="new_limit_day">何日まで：</label>
+            <input type="date" id="new_limit_day" name="limit_day" required>
+            <label for="new_limit_time">何時まで（任意）：</label>
+            <input type="time" id="new_limit_time" name="limit_time" value="23:59">
+        </div>
+        <div>
+            <label for="new_importance">重要度</label>
+            <select name="importance" id="new_importance">
+                <option value="低">低</option>
+                <option value="中" selected>中</option>
+                <option value="高">高</option>
+                <option value="緊急">緊急</option>
+            </select>
+        </div>
+        <a href="/">戻る</a>
+        <button>追加する</button>
+    </form>
+</body>
+
+</html>

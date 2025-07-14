@@ -18,30 +18,9 @@
             </li>
         <% }) %>
     </ul>
-    <form action="/new" method="POST">
-        <div>
-            <label for="new_do">やること：</label>
-            <!-- idはlabelと連動。nameはform送信時にURLにつくやつ？ -->
-            <input type="text" id="new_do" name="new_do" required>
-        </div>
-        <div>
-            <label for="new_limit_day">何日まで：</label>
-            <input type="date" id="new_limit_day" name="new_limit_day" required>
-            <label for="new_limit_time">何時まで（任意）：</label>
-            <input type="time" id="new_limit_time" name="new_limit_time" value="23:59">
-        </div>
-        <div>
-            <label for="new_importance">重要度</label>
-            <select name="new_importance" id="new_importance">
-                <option value="row">低</option>
-                <option value="medium" selected>中</option>
-                <option value="high">高</option>
-                <option value="hurry">緊急</option>
-            </select>
-        </div>
-        <% //<a href="./">戻る</a> %>
-            <button>追加する</button>
-    </form>
+
+    <a href="/new">新規登録</a>
+
 </body>
 
 </html>
