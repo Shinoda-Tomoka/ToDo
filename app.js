@@ -28,6 +28,11 @@ app.get('/new', (req, res) => {
     res.render('new');
 });
 
+app.get('/edit/:id', async (req, res) => {
+    const todo = await Todo.findById(req.params.id);
+    res.render('edit', { todo });
+})
+
 //新規追加
 app.post('/' ,async (req, res) => {
     const { title, limit_day, limit_time, importance, check } = req.body;
@@ -35,10 +40,15 @@ app.post('/' ,async (req, res) => {
     res.redirect('/');
 });
 
-app.post('/check/:id', async (req, res) => {
+app.put('/check/:id', async (req, res) => {
     await Todo.findByIdAndUpdate(req.params.id, { check: true });
     res.redirect('/');
 });
+
+app.put('/edit/:id', async (req, res) => {
+    await Todo.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/');
+})
 
 app.delete('/delete/:id', async(req, res) => {
     await Todo.findByIdAndDelete(req.params.id);
